@@ -31,7 +31,7 @@ class FilepondController extends BaseController
     {
         $file = $request->file('file')[0];
 
-        $filePath = @tempnam(config('filepond.temporary_files_path'), "laravel-filepond");
+        $filePath = tempnam(config('filepond.temporary_files_path'), "laravel-filepond");
         $filePathParts = pathinfo($filePath);
 
         if(!$file->move($filePathParts['dirname'], $filePathParts['basename'])) {
