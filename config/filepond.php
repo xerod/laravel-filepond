@@ -19,6 +19,6 @@ return [
     | When initially uploading the files we store them in this path
     |
     */
-    'temporary_files_path' => storage_path('app/tmp'),
+    'temporary_files_path' => sys_get_temp_dir(),
 
 ];
