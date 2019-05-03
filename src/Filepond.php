@@ -28,6 +28,9 @@ class Filepond {
             throw new InvalidPathException();
         }
         $filePath = Crypt::decryptString($serverId);
+        if (Str::startsWith($filePath, '/private')) {
+            $filePath = Str::replaceFirst('/private', '', $filePath);
+        }
         if(!Str::startsWith($filePath, config('filepond.temporary_files_path'))) {
             throw new InvalidPathException();
         }
